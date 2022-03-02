@@ -29,3 +29,7 @@ body {
   text-align: left;
   background-color: #fff;
 }
+
+.field {
+  margin-bottom: 10px;
+}
