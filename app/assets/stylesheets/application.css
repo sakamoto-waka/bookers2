@@ -41,3 +41,13 @@ body {
 .notice_message {
   color: green;
 }
+
+.error-explanation {
+  color: red;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 40px;
+}

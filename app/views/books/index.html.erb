@@ -1,6 +1,16 @@
 <div class="container px-5 px-sm-0">
-  <div class="row">
+  <div class="error-explanation">
+    <% if @book.errors.any? %>
+      <h3><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>
+      <ul class="">
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 
+  <div class="row">
     <%= render 'left_side', book: @book, user: current_user %>
 
     <div class="col-md-8 offset-md-1">
@@ -14,8 +24,8 @@
             <th></th>
           </tr>
         </thead>
-        <% @books.each do |book| %>
-          <tbody>
+        <tbody>
+          <% @books.each do |book| %>
             <tr>
               <td>
                 <%= link_to user_path(book.user) do %>
@@ -24,8 +34,8 @@
               <td><%= link_to book.title, book_path(book) %></td>
               <td><%= book.body %></td>
             </tr>
-          </tbody>
-        <% end %>
+          <% end %>
+        </tbody>
       </table>
     </div>
   </div>
