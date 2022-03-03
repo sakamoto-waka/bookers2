@@ -71,10 +71,7 @@
     </header>
 
     <main>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: key) %>
-      <% end %>
-      <p><%= notice %></p>
+      <p class="notice_message"><%= notice %></p>
       <%= yield %>
     </main>
 
