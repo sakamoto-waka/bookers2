@@ -37,3 +37,7 @@ body {
 .form-group, .action  {
   margin-bottom: 1rem;
 }
+
+.notice {
+  color: green;
+}
