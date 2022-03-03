@@ -1,42 +1,8 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-md-3">
-      <h2>User info</h2>
-      <%= image_tag current_user.get_profile_image(100, 100) %>
-      <table class="table">
-        <tbody>
-          <tr></tr>
-          <tr>
-            <th>name</th>
-            <th><%= current_user.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th></th>
-          </tr>
-        </tbody>
-      </table>
-      <div class="row">
-          <%= link_to edit_user_path(current_user), class:"btn btn-outline-secondary btn-block" do %>
-            <i class="fas fa-user-cog"></i>
-          <% end %>
-      </div>
 
-      <h2 class="mt-3">New book</h2>
-      <%= form_with model: @book, url: books_path, method: :post, local: true do |f| %>
-        <div class="form-group">
-          <%= f.label :title %>
-          <%= f.text_field :title, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :body, 'Opinion' %>
-          <%= f.text_area :body, class: "form-control" %>
-        </div>
-        <div class="action">
-          <%= f.submit 'Create Book', class: "btn btn-success" %>
-        </div>
-      <% end %>
-    </div>
+    <%= render 'left_side', book: @book %>
+
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover">
@@ -51,7 +17,7 @@
         <% @books.each do |book| %>
           <tbody>
             <tr>
-              <td>user image + link</td>
+              <td><%= image_tag book.user.get_profile_image(100, 100) %></td>
               <td><%= book.title %></td>
               <td><%= book.body %></td>
             </tr>
